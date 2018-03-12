@@ -20,6 +20,8 @@ resolver: lts-10.9
 nix:
   packages:
     - mesa
+    - mesa_glu
+    - freeglut
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
