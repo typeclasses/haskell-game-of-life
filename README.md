@@ -3,11 +3,25 @@ other is very slow, but specified in an interesting way. The slow version is fou
 
 # Build with Nix
 
-Our primary computers all run NixOS, and the following instructions worked for us on those. Note that Nix is enabled in our Stack configuration and we have Nix installing some native dependencies for us.
+Our primary computers all run NixOS, and the following instructions worked for us on those. Note that Nix is enabled in our global Stack configurations and we have Nix installing some native dependencies for us.
 
 ```shell
 $ stack build
 $ stack exec -- conway
+```
+
+If you do not already have Nix enabled in your global Stack configuration, you can enable Nix for this project by adding it to the `stack.yaml` for this project as follows:
+
+```yaml
+nix: 
+  enable: true
+```
+
+or by building it with the `--nix` flag:
+
+```shell
+$ stack build --nix
+$ stack exec --nix -- conway
 ```
 
 However, this didn't work so smoothly when we tried it on a machine running Ubuntu 16.04.
@@ -15,25 +29,9 @@ However, this didn't work so smoothly when we tried it on a machine running Ubun
 
 # Installing on Ubuntu 16.04
 
-This was included in the original instructions from the package author, but it didn't work for us:
+The package originally had instructions to build, install, and run the package using Cabal; however, we found these did not work reliably. 
 
-```shell
-# To build, use Cabal:
-$ cabal configure
-$ cabal build
-```
-
-However, on a machine running Ubuntu 16.04, the following did work:
-
-```shell
-# If you want to install:
-$ cabal install
-
-# Or just run it:
-$ ./dist/build/conway/conway
-```
-
-Alternatively you can build and run it with Stack, though we had to *turn off Nix* to do this on the Ubuntu machine:
+So we built and executed with Stack, though we had to *turn off Nix* to do this on the Ubuntu machine:
 
 ```shell
 $ stack build --no-nix
