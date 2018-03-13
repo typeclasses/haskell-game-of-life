@@ -27,7 +27,7 @@ However, on a machine running Ubuntu 16.04, the following did work:
 > If you want to install:
 `$ cabal install`
 
->Or just run it:
+> Or just run it:
 `$ ./dist/build/conway/conway`
 
 Alternatively you can build and run it with Stack, though we had to *turn off Nix* to do this on the Ubuntu machine:
@@ -35,7 +35,7 @@ Alternatively you can build and run it with Stack, though we had to *turn off Ni
 `$ stack build --no-nix`
 `$ stack exec --no-nix -- conway`
 
-It should pop open a new window with the game running inside it. 
+It should pop open a new window with the game running inside it.
 
 You may have an error message about a missing native dependency on Ubuntu. If that's the case, try the following:
 
@@ -45,5 +45,4 @@ We have not tested this on machines running Windows or OSX.
 
 # Changing Colors
 
-The original package only had a few colors enabled. For the purposes of making the header image on [The Haskell Museum](https://typeclasses.com/haskell-museum), we added some new colors to the Graphics.hs module, using `GLFloat` numbers, and exported those colors. 
-
+The original package only had a few colors enabled. For the purposes of making the header image on [The Haskell Museum](https://typeclasses.com/haskell-museum), we added some new colors to the Graphics.hs module, using `GLFloat` numbers, and exported those colors.

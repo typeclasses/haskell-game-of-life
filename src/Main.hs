@@ -3,8 +3,8 @@ import Graphics
 import qualified Conway
 
 colorCell :: Conway.CellState -> PatchColor
-colorCell Conway.Alive = pink
-colorCell Conway.Dead  = navy
+colorCell Conway.Alive = brown
+colorCell Conway.Dead  = pink
 
 main :: IO ()
 main = do
